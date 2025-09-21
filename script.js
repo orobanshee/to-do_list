@@ -4,9 +4,9 @@ const listGroup = document.getElementById("list");
 const listElement = document.getElementsByClassName("element-list");
 const buttonDeleteTask = document.getElementsByClassName("btn-close");
 
-buttonNewTask.addEventListener ('click', () => {
+buttonNewTask.addEventListener ('click', (event) => {
     event.preventDefault()
-    const addNewTask = function () {
+    
     
     if (textArea.value.trim() === '') {
         alert('nothing')
@@ -31,12 +31,19 @@ buttonNewTask.addEventListener ('click', () => {
         newLi.appendChild(bntDelete);
 
         listGroup.appendChild(newLi);
-
-    }
-}   
-        addNewTask();
+    
+    }   
 });
 
-    
+
+Array.from(buttonDeleteTask).forEach(btn => {
+
+    btn.addEventListener('click' , (event) => {
+
+        event.preventDefault();   
+        const li = event.target.parentElement;
+        listGroup.removeChild(li);
 
 
+    })
+});
