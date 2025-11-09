@@ -1,22 +1,20 @@
 /* General */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
- body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
- 
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    line-height: 2;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 2;
+}
 
- }
-
- #bg-video {
+#bg-video {
   position: fixed;
   top: 0;
   left: 0;
@@ -29,89 +27,86 @@
 /* Main */
 
 .container {
-    width: auto;
+  width: auto;
 }
 
 .todo {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    width: 100vh;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vh;
+  padding: 20px;
 }
 
 .todo__title {
-    font-family: 'Bitcount Ink';
-    font-weight: 400;
-    line-height: 1;
+  font-family: "Bitcount Ink";
+  font-weight: 400;
+  line-height: 1;
 
+  display: flex;
+  justify-content: center;
+  text-align: center;
 
-    display: flex;
-    justify-content: center;
-    text-align: center;
+  width: 100%;
 
-    width: 100%;
-
-    text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff;
 }
 
 .todo__form {
-    padding: 20px 20px 10px 20px;
-
+  padding: 20px 20px 10px 20px;
 }
 
 .field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    gap: 20px;
-    
+  gap: 20px;
 }
 
 .btn {
- width: 60%;
- transition: .4s;
+  width: 60%;
+  transition: 0.4s;
 }
 
 .field__textarea {
-   width: 85%;
-   height: 34px;
-   box-sizing: border-box;
-   
-   background-color: rgba(213, 255, 164, 0.6);
-   backdrop-filter: blur(8px);
-   border-radius: 10px; 
+  width: 85%;
+  height: 34px;
+  box-sizing: border-box;
 
+  background-color: rgba(213, 255, 164, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
 }
 
 .list {
-    line-height: 1;
-    padding: 20px;
-
+  line-height: 1;
+  padding: 20px;
 }
 
 .element-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    padding: 10px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-   background-color: rgba(213, 255, 164, 0.458);
-   border-radius: 10px; 
-   backdrop-filter: blur(8px);
+  padding: 10px;
+  margin-top: 10px;
+
+  background-color: rgba(213, 255, 164, 0.458);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(8px);
+
+  backdrop-filter: blur(8px);
 }
 
 .task-text {
-    color: #000;
-    text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 
 .btn-close {
-    padding: 0;
-    border-radius: 50%;
+  padding: 0;
+  border-radius: 50%;
 }

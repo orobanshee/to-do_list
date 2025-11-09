@@ -5,80 +5,73 @@ const buttonNewTask = document.getElementById("btnNewTask");
 const listGroup = document.getElementById("list");
 const listElement = document.getElementsByClassName("element-list");
 const buttonDeleteTask = document.getElementsByClassName("btn-close");
-const STORAGE_KEY = 'tasks'
+const STORAGE_KEY = "tasks";
 
 // add new task
 
 function renderTask(text) {
-        
-        const newLi = document.createElement('li');
-        newLi.classList.add("element-list");
+  const newLi = document.createElement("li");
+  newLi.classList.add("element-list");
 
-        const newTaskText = document.createElement('a');
-        newTaskText.setAttribute("href" , '#!')
-        newTaskText.classList.add('task-text');
-         newTaskText.textContent = text;
+  const newTaskText = document.createElement("a");
+  newTaskText.setAttribute("href", "#!");
+  newTaskText.classList.add("task-text");
+  newTaskText.textContent = text;
 
-        const bntDelete = document.createElement('button');
-        bntDelete.classList.add('btn-close');
-        bntDelete.setAttribute('aria-label', 'Close')
+  const bntDelete = document.createElement("button");
+  bntDelete.classList.add("btn-close");
+  bntDelete.setAttribute("aria-label", "Close");
 
-        newLi.appendChild(newTaskText);
-        newLi.appendChild(bntDelete);
+  newLi.appendChild(newTaskText);
+  newLi.appendChild(bntDelete);
 
-        listGroup.appendChild(newLi)
-
+  listGroup.appendChild(newLi);
 }
 
-    buttonNewTask.addEventListener ('click', (event) => {
-        
-        const text = textArea.value.trim();
-        event.preventDefault()
-        
-        if (!text) return;
-        
-            renderTask(text);
+buttonNewTask.addEventListener("click", (event) => {
+  const text = textArea.value.trim();
+  event.preventDefault();
 
-            const tasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
-            tasks.push(text);
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  if (!text) return;
 
-            textArea.value = "";
-    });
+  renderTask(text);
+
+  const tasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  tasks.push(text);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+
+  textArea.value = "";
+});
 
 // delete new tasks
 
 listGroup.addEventListener("click", (event) => {
-    event.preventDefault();
-   
-const btn = event.target.classList.contains('btn-close');
-   
-    if (!btn) return;
+  event.preventDefault();
 
-   
-    const li = event.target.closest('li');
-    if (!li) return;
+  const btn = event.target.classList.contains("btn-close");
 
-    const taskText = li.querySelector('.task-text').textContent;
+  if (!btn) return;
 
-    
-    let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    
-    const index = tasks.indexOf(taskText);
-    if(index > -1 ){
-        tasks.splice(index, 1)
+  const li = event.target.closest("li");
+  if (!li) return;
 
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
-    }
+  const taskText = li.querySelector(".task-text").textContent;
 
-    li.remove();
+  let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+  const index = tasks.indexOf(taskText);
+  if (index > -1) {
+    tasks.splice(index, 1);
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  }
+
+  li.remove();
 });
 
-// local storage 
+// local storage
 
-
-window.addEventListener('DOMContentLoaded', () => {
-    const savedTasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
-    savedTasks.forEach(task => renderTask(task))
-
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  savedTasks.forEach((task) => renderTask(task));
 });
